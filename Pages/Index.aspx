@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="Rentishaclone.Pages.Index" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link href="../Style/Home.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="carousel">
@@ -30,9 +31,19 @@
         <h1>Popular Listings</h1>
 
         <div class="popular-ones">
-            <div >
-                1
-            </div>
+                <asp:FormView ID="FormView1" runat="server">
+                    <ItemTemplate>
+                        <div>
+
+                            <div class="pop-details">
+                               <asp:Label ID="Label1" runat="server" Text='<%# Eval("Property_name") %>'></asp:Label>
+                               <asp:Label ID="Label2" runat="server" Text='<%# Eval("County") %>'></asp:Label>
+                               <asp:Label ID="Label3" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
+                            </div>
+
+                        </div>
+                    </ItemTemplate>
+                </asp:FormView>            
             <div>
                 2
             </div>
@@ -40,74 +51,33 @@
                 3
             </div>
         </div>
+        <div style="display:flex;justify-content:center;">
+            <asp:Button ID="Button2" runat="server" Text="View all properties." CssClass="button" />
+        </div>
     </div>
+    <div class="middle">
+        <h1>We Reduce The Search Stress for You.</h1>
+        <h2>About Us</h2>
+    </div>
+    <div class="About-section">
+        <div class="left">
+            <div class="about-image">
 
-    <style>
-        /*carousel*/
-
-        .carousel{
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            background-image:url("../Images/bg1.png");
-            width:100%;
-            height:90vh;
-            background-color: teal;
-            background-size:cover;
-        }
-        .caption{
-            display:flex;
-            flex-direction:column;
-            text-align:center;
-            color:white;
-        }
-        .caption p{
-            color:white
-        }
-        .button{
-            width: 15vw;
-            height:5vh;
-            margin-left:9vw;
-            background-color:seagreen;
-            color:white;
-            border:none;
-        }
-
-        /*Popular properties*/
-
-        .cards{
-            display:flex;
-            justify-content:center;
-            width:100%;
-            gap: 3vw;
-            margin-top:5vh;
-        }
-        .inset1, .inset2, .inset3, .inset4{
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            width:15vw;
-            height:15vh;
-            border-radius:3vh;
-            background-color:lightgray;
-        }
-        .properties h1{
-            height:8vh;
-            text-align:center;
-        }
-    .popular-ones {
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        width:100%;
-        height:70vh;
-        column-gap:5vw;
-    }
-    .popular-ones div{
-        width:25vw;
-        height:50vh;
-        border-radius:2vh;
-        background-color:lightgray;
-    }
-    </style>
+            </div>
+        </div>
+        <div class="right">
+            <div>
+                <i class="material-icons">home</i>  <h3>Reliability</h3>
+            </div>
+            <div>
+               <i class="material-icons">person</i>  <h3>Safety-oriented</h3>
+            </div>
+            <div>
+                <i class="material-icons">contact_mail</i>  <h3>Customer support</h3>
+            </div>
+            <div>
+                <i class="material-icons">attach_money</i>  <h3>Pocket-friendly</h3>
+            </div>
+        </div>
+    </div>
 </asp:Content>
