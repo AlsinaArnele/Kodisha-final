@@ -30,7 +30,6 @@
                     <li ><asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="#reality" ForeColor="Gray">About</asp:HyperLink></li>
                     <li><asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Pages/Contact.aspx" ForeColor="Gray">Contact</asp:HyperLink></li>
                </ul>
-                
                 <div class="btns">
                     <asp:Button ID="addlistbtn" class="addList" style="font-size:15px" runat="server" Text="Add Listing" PostBackUrl="~/Pages/AddListingUser.aspx" />
                     <asp:Button ID="logoutbtn" runat="server" Text="logout" CssClass="addList" Font-Size="15px" OnClick="Button1_Click" />
@@ -43,12 +42,10 @@
             </nav>
         </div>
     </header>
-
          <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-
     <footer class="foot">
         <div class="myFooter">
             <div class="logo_container">
@@ -65,12 +62,10 @@
             <div class="menu">
                 <h3>Products</h3>
                 <ul>
-
                     <a href="#">
                     <li>Rentals</li></a>
                     <a href="#">
                     <li>For sale</li></a>
-
                 </ul>
             </div>
             <div class="menu">
@@ -80,25 +75,10 @@
                     <li>Privacy Policy</li></a>
                     <a href="#">
                     <li>Terms and Conditions</li></a>
-
                 </ul>
             </div>
-
         </div>
-
     </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
-            integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
-            crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-            crossorigin="anonymous"></script>
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-    <script src="~/Content/Js/Main.js"></script>
-
     </form>
 </body>
 </html>

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows.Forms;
 
 namespace Rentishaclone.Pages
 {
@@ -16,28 +17,36 @@ namespace Rentishaclone.Pages
 
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void Button1_Click1(object sender, EventArgs e)
         {
-            string email = txtemail.Text;
+            string username = txtusername.Text;
             string password = txtpass.Text;
 
-            DataTable dt = new DataTable();
-
-            LoginTableAdapters.UsersTableAdapter user = new LoginTableAdapters.UsersTableAdapter();    
-            dt = user.GetData(email, password);
-            if (dt.Rows.Count > 0)
+            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Arnele\\source\\repos\\Rentishaclone\\App_Data\\MainDatabase.mdf;Integrated Security=True";
+            string query = "SELECT * FROM Users WHERE Username=@Value1 AND Password=@Value2";
+            using (SqlConnection con = new SqlConnection(connectionString))
             {
-                Response.Redirect("Index.aspx");
-            }
-            
-            else
-            {
-                //Response.Write("Invalid credentials");
-                lblinvalid.Text = "Authentication failed";
-                lblinvalid.ForeColor = System.Drawing.Color.Red;
+                con.Open();
+                SqlCommand sqlcmd = new SqlCommand(query, con);
+                sqlcmd.Parameters.AddWithValue("@Value1", username);
+                sqlcmd.Parameters.AddWithValue("@Value2", password);
+                DataTable dtbl = new DataTable();
+                SqlDataAdapter sqlsda = new SqlDataAdapter(sqlcmd);
+                sqlsda.Fill(dtbl);
+                con.Close();
+                if (dtbl.Rows.Count == 1)
+                {
+                    Response.Redirect("Index.aspx");
+                }
+                else
+                {
+                    Response.Write("Invalid Credentials!!");
+                }
             }
 
         }
+
+
     }
     
 }
