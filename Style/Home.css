@@ -109,11 +109,17 @@ h2{
 .pop-details{
     display:flex;
     flex-direction:column;
-    align-content:space-evenly;
+    padding:1vw;
     width:25vw;
     height:25vh;
+    overflow:hidden;
 }
-
+.details-lables{
+    font-size:1.5vw;
+    font-weight:400;
+    margin-bottom:2vh;
+    margin-left:1vw;
+}
 
 .About-section {
     display: flex;

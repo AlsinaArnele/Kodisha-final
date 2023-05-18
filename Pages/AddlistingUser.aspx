@@ -36,6 +36,10 @@
                 <asp:Label ID="Label1" runat="server" Text="Amenities"></asp:Label><br />
                 <asp:TextBox ID="txtamenities" runat="server"></asp:TextBox>
             </th>
+            <th>
+                <asp:Label ID="Label8" runat="server" Text="Image"></asp:Label><br />
+                <asp:FileUpload ID="fu" runat="server" />
+            </th>
            
             <th>
                 <asp:Button ID="editbtn" runat="server" Text="Add Listing" OnClick="editbtn_Click" />

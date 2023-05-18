@@ -31,26 +31,18 @@
         <h1>Popular Listings</h1>
 
         <div class="popular-ones">
-                <asp:FormView ID="FormView1" runat="server">
-                    <ItemTemplate>
-                        <div>
 
-                            <div class="pop-details">
-                               <asp:Label ID="Label1" runat="server" Text='<%# Eval("Property_name") %>'></asp:Label>
-                               <asp:Label ID="Label2" runat="server" Text='<%# Eval("County") %>'></asp:Label>
-                               <asp:Label ID="Label3" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
-                            </div>
+            <div class="pop-details">
+                 <asp:Image ID="imgProperty" runat="server" />
+                 <div style="display:flex;justify-content:center;gap:12vw;height:4vh;"><asp:Label ID="lblPrice" runat="server" CssClass="details-lables" ForeColor="SeaGreen"></asp:Label><asp:Label ID="lblstatus" runat="server" CssClass="details-lables" ForeColor="SeaGreen"></asp:Label></div>
+                 <asp:Label ID="lblname" runat="server" CssClass="details-lables"></asp:Label>
+                 <asp:Label ID="lblCounty" runat="server" CssClass="details-lables" ForeColor="Silver"></asp:Label>
+                 
+            </div>
 
-                        </div>
-                    </ItemTemplate>
-                </asp:FormView>            
-            <div>
-                2
-            </div>
-            <div>
-                3
-            </div>
         </div>
+
+
         <div style="display:flex;justify-content:center;">
             <asp:Button ID="Button2" runat="server" Text="View all properties." CssClass="button" />
         </div>
