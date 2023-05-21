@@ -38,7 +38,7 @@
             </th>
             <th>
                 <asp:Label ID="Label8" runat="server" Text="Image"></asp:Label><br />
-                <asp:FileUpload ID="fu" runat="server" />
+                <asp:FileUpload ID="fu" runat="server" /><asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Image required" ControlToValidate="fu"></asp:RequiredFieldValidator>
             </th>
            
             <th>

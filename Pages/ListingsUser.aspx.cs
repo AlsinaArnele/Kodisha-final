@@ -17,34 +17,97 @@ namespace Rentishaclone.Pages
         {
             if (!IsPostBack)
             {
-                string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Arnele\\source\\repos\\Rentishaclone\\App_Data\\MainDatabase.mdf;Integrated Security=True";
-                string queryString = "SELECT * FROM Properties";
+                // Retrieve data from the database table
+                DataTable table = GetDataFromDatabase();
 
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                // Loop through each item in the DataTable
+                foreach (DataRow row in table.Rows)
                 {
-                    SqlCommand command = new SqlCommand(queryString, connection);
-                    connection.Open();
-                    SqlDataReader reader = command.ExecuteReader();
-                    try
-                    {
-                        while (reader.Read())
-                        {
-                            // Create a new card container for each item
-                          lblcounty.Text = reader["County"].ToString();
-                            lblstatus.Text = reader["Status"].ToString();
-                            lblname.Text = reader["Property_name"].ToString();
-                            lblprice.Text = reader["Price"].ToString();
-                        }
-                    }
-                    finally
-                    {
-                        reader.Close();
-                    }
+                    //New Div
+                    var div = new System.Web.UI.HtmlControls.HtmlGenericControl("div");
+                    div.Attributes["class"] = "pop-details";
+
+                    //Image
+                    var imgProperty = new System.Web.UI.WebControls.Image();
+                    imgProperty.ID = "imgProperty";
+                    imgProperty.CssClass = "pop-image";
+                    byte[] imageData = null;
+                    imageData = (byte[])row["Images"];
+                    string base64Image = Convert.ToBase64String(imageData);
+                    imgProperty.ImageUrl = "data:image/jpeg;base64," + base64Image;
+                    div.Controls.Add(imgProperty);
+
+                    //Inner Div
+                    var labelDiv = new System.Web.UI.HtmlControls.HtmlGenericControl("div");
+                    labelDiv.Attributes["style"] = "display:flex;justify-content:left;align-content:space-evenly;height:4vh;width:25vw;";
+
+                    //Label price
+                    var lblPrice = new System.Web.UI.WebControls.Label();
+                    lblPrice.ID = "lblPrice";
+                    lblPrice.CssClass = "details-lables";
+                    lblPrice.ForeColor = System.Drawing.Color.SeaGreen;
+                    lblPrice.Text = row["Price"].ToString();
+                    labelDiv.Controls.Add(lblPrice);
+
+                    //Label Status
+                    var lblStatus = new System.Web.UI.WebControls.Label();
+                    lblStatus.ID = "lblStatus";
+                    lblStatus.CssClass = "details-lables";
+                    lblStatus.ForeColor = System.Drawing.Color.SeaGreen;
+                    lblStatus.Text = row["Status"].ToString();
+                    labelDiv.Controls.Add(lblStatus);
+
+                    div.Controls.Add(labelDiv);
+
+                    //Label Name
+                    var lblName = new System.Web.UI.WebControls.Label();
+                    lblName.ID = "lblName";
+                    lblName.CssClass = "details-lables";
+                    lblName.Text = row["Property_name"].ToString();
+                    div.Controls.Add(lblName);
+
+                    //Label County
+                    var lblCounty = new System.Web.UI.WebControls.Label();
+                    lblCounty.ID = "lblCounty";
+                    lblCounty.CssClass = "details-lables";
+                    lblCounty.ForeColor = System.Drawing.Color.Silver;
+                    lblCounty.Text = row["County"].ToString();
+                    div.Controls.Add(lblCounty);
+
+                    PlaceHolder1.Controls.Add(div);
                 }
             }
         }
 
+        private DataTable GetDataFromDatabase()
+        {
+            DataTable dataTable = new DataTable();
 
+            try
+            {
+                string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Arnele\\source\\repos\\Kodisha-final\\App_Data\\MainDatabase.mdf;Integrated Security=True";
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string query = "SELECT * FROM Properties";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        {
+                            adapter.Fill(dataTable);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+
+            return dataTable;
+        }
 
     }
 }
