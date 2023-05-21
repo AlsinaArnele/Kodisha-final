@@ -23,6 +23,9 @@ namespace Rentishaclone.Pages
                 // Loop through each item in the DataTable
                 foreach (DataRow row in table.Rows)
                 {
+
+                    string bedIcon = "<i class='fas fa-Bed'></i>";
+                    string showerIcon = "<i class='fas fa-shower'></i>";
                     //New Div
                     var div = new System.Web.UI.HtmlControls.HtmlGenericControl("div");
                     div.Attributes["class"] = "pop-details";
@@ -39,40 +42,49 @@ namespace Rentishaclone.Pages
 
                     //Inner Div
                     var labelDiv = new System.Web.UI.HtmlControls.HtmlGenericControl("div");
-                    labelDiv.Attributes["style"] = "display:flex;justify-content:left;align-content:space-evenly;height:4vh;width:25vw;";
+                    labelDiv.Attributes["style"] = "display:grid;grid-template-columns:1fr 1fr;width:20vw;align-items:center;height:5vh;";
 
                     //Label price
                     var lblPrice = new System.Web.UI.WebControls.Label();
                     lblPrice.ID = "lblPrice";
-                    lblPrice.CssClass = "details-lables";
-                    lblPrice.ForeColor = System.Drawing.Color.SeaGreen;
+                    lblPrice.CssClass = "price";
                     lblPrice.Text = row["Price"].ToString();
                     labelDiv.Controls.Add(lblPrice);
 
                     //Label Status
                     var lblStatus = new System.Web.UI.WebControls.Label();
                     lblStatus.ID = "lblStatus";
-                    lblStatus.CssClass = "details-lables";
-                    lblStatus.ForeColor = System.Drawing.Color.SeaGreen;
+                    lblStatus.CssClass = "status";
                     lblStatus.Text = row["Status"].ToString();
                     labelDiv.Controls.Add(lblStatus);
 
                     div.Controls.Add(labelDiv);
 
-                    //Label Name
-                    var lblName = new System.Web.UI.WebControls.Label();
-                    lblName.ID = "lblName";
-                    lblName.CssClass = "details-lables";
-                    lblName.Text = row["Property_name"].ToString();
-                    div.Controls.Add(lblName);
-
                     //Label County
                     var lblCounty = new System.Web.UI.WebControls.Label();
                     lblCounty.ID = "lblCounty";
-                    lblCounty.CssClass = "details-lables";
-                    lblCounty.ForeColor = System.Drawing.Color.Silver;
+                    lblCounty.CssClass = "location";
                     lblCounty.Text = row["County"].ToString();
                     div.Controls.Add(lblCounty);
+
+                    var labelDiv2 = new System.Web.UI.HtmlControls.HtmlGenericControl("div");
+                    labelDiv2.Attributes["style"] = "display:grid;grid-template-columns:1fr 1fr;width:20vw;height:5vh;";
+
+                    //Label Name
+                    var lblbed = new System.Web.UI.WebControls.Label();
+                    lblbed.ID = "lblName";
+                    lblbed.CssClass = "name";
+                    lblbed.Text = bedIcon + "Bedrooms:" +  row["Bedrooms"].ToString();
+                    labelDiv2.Controls.Add(lblbed);
+
+                    //Label Name
+                    var lblbath = new System.Web.UI.WebControls.Label();
+                    lblbath.ID = "lblName";
+                    lblbath.CssClass = "rname";
+                    lblbath.Text = showerIcon + "Bathrooms:" + row["Bathrooms"].ToString();
+                    labelDiv2.Controls.Add(lblbath);
+
+                    div.Controls.Add(labelDiv2);
 
                     PlaceHolder1.Controls.Add(div);
                 }

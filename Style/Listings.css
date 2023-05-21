@@ -23,39 +23,33 @@ h1 {
 .popular-ones {
     display: flex;
     flex-wrap: wrap;
-    justify-content: left;
-    width: 90vw;
-    margin-left: 5vw;
+    justify-content: center;
+    width: 100vw;
     margin-top: 5vh;
-    height: auto;
-    gap: 5vw;
+    height: 100vh;
+    gap: 3vw;
 }
 
-    .popular-ones div {
-        width: 25vw;
-        height: 50vh;
-        border-radius: 1vh;
-        background-color: white;
-    }
+.popular-ones div {
+    width: 20vw;
+    height: 40vh;
+    border-radius: 1vh;
+    background-color: white;
+}
 
 .pop-image {
-    margin-left:1vw;
-    width: 23vw;
-    height: 35vh;
+    width: 20vw;
+    height: 30vh;
     background-size:cover;
+    border-radius:1vw;
 }
 
 .pop-details {
     display: flex;
     justify-content: left;
     flex-direction: column;
-    width: 25vw;
-    height: 25vh;
+    width: 20vw;
+    height: 10vh;
     overflow: hidden;
 }
 
-.details-lables {
-    font-size: 1.5vw;
-    font-weight: 400;
-    margin-left: 1vw;
-}
