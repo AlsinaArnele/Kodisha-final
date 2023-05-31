@@ -1,44 +1,84 @@
 ﻿
-.navopacity {
-    background-color: rgb(161, 179, 179);
-}
+/*#18363E | #5F97AA | #2D5F6E | #3E88A5 | #93C4D1*/
 
-.navi {
+*{
+    scroll-behavior:smooth;
+}
+.navbar {
     display: flex;
     align-items: center;
     position: relative;
     z-index: 2;
-    background-color: lightgray;
+    background-color: transparent;
     width: 90vw;
+    margin-left:5vw;
     opacity: 1;
+    height: 10vh;
+}
+.logo{
+    border:1px solid;
+    width: 50vw;
     height:10vh;
-    top:0;
 }
 
 
-
-.navlink {
+.links {
+    width:20vw;
+    height:10vh;
     display: flex;
-    padding-top:15px;
-    flex: 2;
+    gap: 2rem;
+    justify-content:center;
+    align-items: center;
+}
+li{
+    list-style:none;
+}
+
+.li {
+    color: black;
+    font-size: 1vw;
+    font-weight:300;
+    position: relative;
+    cursor: pointer;
+    text-decoration:none;
+}
+
+.btns {
+    width: 20vw;
+    height: 10vh;
+    display: flex;
     gap: 2rem;
     align-items: center;
-    margin-left:100px;
+    justify-content: center;
 }
 
-     li {
-        text-decoration: none;
-        color: var(--color-dark-variant);
-        font-size: var(--p-font);
-        position: relative;
-        cursor: pointer;
+.addList {
+    background-color: #2D4030;
+    color: white;
+    border: none;
+    font-size: .5vw;
+    transition: transform .5s, background-color .5s,color .5s;
+}
+
+    .addList:hover, .logout:hover {
+        background-color: white;
+        color: #2D4030;
+        transform: scale(0.95);
     }
+
+.logout {
+    background-color: #2D4030;
+    color: white;
+    border: none;
+    font-size: .5vw;
+    transition: transform .5s, background-color .5s,color .5s;
+}
 
 /* Burger menu */
 .burger div {
     width: 25px;
     height: 3px;
-    background-color: hsl(0, 0%, 8%);
+    background-color: black;
     margin: 5px;
 }
 
@@ -46,98 +86,7 @@
     display: none;
 }
 
-
-/* Nav Bar */
-
-
-.navlink a li:hover, li:hover {
-    color: rgb(14 116 144);
-    transition: ease-in-out .3s;
-    text-decoration:underline;
-    text-underline-offset: 4px;
-}
-
-.navlink .inner {
-    display: none;
-    padding: 2rem;
-    position: absolute;
-    width: 10vw;
-    height: auto;
-    z-index: 1;
-    border-radius: 1rem;
-    opacity: .9;
-    background-color: #fff;
-    opacity: 1;
-    text-align: center;
-}
-
-    .navlink .inner a {
-        font-size: small;
-    }
-
-.navlink .prop:hover .inner {
-    display: block;
-}
-
-.logo-container {
-    padding: 2vh 2vw;
-    flex: 1;
-}
-
-
-
-.btns {
-    width:300px;
-    display: flex;
-    gap: 2rem;
-    flex: 2;
-    align-items: center;
-    justify-content: right;
-    margin-right:70px;
-}
-
-.addList {
-    background-color: rgb(4, 50, 63);
-    color: #f4f4f4;
-    border: none;
-    padding: .5vh 2vw;
-    font-size:15px;
-    font-size: var(--p-font);
-}
-
-    .addList:hover, .logout:hover {
-        background-color: rgba(7, 87, 109, 0.918);
-        transform:scale(0.95);
-        transition:ease-in-out .3s;
-    }
-
-.logout {
-    background-color: rgb(4, 50, 63);
-    color: #f4f4f4;
-    border: none;
-    padding: .5vh 2vw;
-    font-size: var(--p-font);
-}
-
-.sign {
-    border: none;
-    padding: .5vw 1vw;
-    border-radius: 1rem;
-    background-color: rgb(14 116 144);
-    font-size: var(--p-font);
-    color: #f4f4f4;
-}
-
-    .sign:hover {
-        background: rgb(8, 99, 124);
-    }
-
-.reg {
-    display: flex;
-}
-
-
-
+/*FOOTER*/
 .foot {
     width: 100%;
     background: linear-gradient(to left,#efefef,#e8e8e8);
@@ -187,16 +136,24 @@
     text-align: left;
 }
 
-li{
-    font-size:15px;
+li {
+    font-size: 15px;
 }
 
 
 
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:600px) {
+    
+
+    navi h2 {
+        width: 50vw;
+        height: auto;
+        font-size: 8vw;
+        font-weight: 300;
+    }
     .myFooter {
-        display: flex;
+        display: none;
         flex-direction: column-reverse;
         justify-content: center;
         align-items: center;
@@ -205,11 +162,11 @@ li{
     }
 
     .navi {
-        display: block;
+        display: flex;
+        background-color:lightgray;
         flex-direction: column;
         position: fixed;
         z-index: 10;
-        opacity: .8;
     }
 
     .burger {
@@ -225,7 +182,6 @@ li{
         margin-bottom: 10vh;
         transform: translateX(-100vw);
         position: fixed;
-        animation: fade 1s linear;
         position: absolute;
         transition: all 300ms ease-in-out;
     }
@@ -263,14 +219,3 @@ li{
     }
 }
 
-@keyframes fade {
-    from {
-        transform: translateX(-100vw);
-        opacity: 0.8;
-    }
-
-    to {
-        transform: translateX(0vw);
-        opacity: 1;
-    }
-}

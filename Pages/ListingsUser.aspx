@@ -9,7 +9,6 @@
     <div class="welcome-section">
         <h1>OUR LISTINGS</h1>
         <div class="filter-form">
-            <form action="@Url.Action("Search")" method="get">
                 <input type="search" name="search_string" placeholder="Enter County...">
 
                 <div class="selects">
@@ -27,14 +26,13 @@
                     </select>
                 </div>
                 <asp:Button ID="Button1" runat="server" Text="Filter" CssClass="buttons" />
-            </form>
         </div>
     </div>
 </section>
 
         <div  class="popular-ones" id="popular-ones">
             <asp:PlaceHolder ID="PlaceHolder1" runat="server">
-                <!-- property goes here -->
+                
             </asp:PlaceHolder>
         </div>
     <style>
@@ -72,6 +70,14 @@
     color: dimgrey;
     font-weight: 400;
     margin-right:1vw;
+}
+.bname{
+    text-align:left;
+    margin-left:3vw;
+}
+.brname{
+    text-align:right;
+    margin-right:3vw;
 }
 .status{
     text-align:right;

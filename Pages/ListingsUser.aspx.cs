@@ -68,23 +68,41 @@ namespace Rentishaclone.Pages
                     div.Controls.Add(lblCounty);
 
                     var labelDiv2 = new System.Web.UI.HtmlControls.HtmlGenericControl("div");
-                    labelDiv2.Attributes["style"] = "display:grid;grid-template-columns:1fr 1fr;width:20vw;height:5vh;";
+                    labelDiv2.Attributes["style"] = "display:grid;grid-template-columns:1fr 1fr;width:20vw;height:10vh;";
 
                     //Label Name
+                    var lblbedlbl = new System.Web.UI.WebControls.Label();
+                    lblbedlbl.ID = "lblName";
+                    lblbedlbl.CssClass = "name";
+                    lblbedlbl.Text = bedIcon + "Bedrooms";
+                    labelDiv2.Controls.Add(lblbedlbl);
+
+                    //Label Name
+                    var lblbathlbl = new System.Web.UI.WebControls.Label();
+                    lblbathlbl.ID = "lblName";
+                    lblbathlbl.CssClass = "rname";
+                    lblbathlbl.Text = showerIcon + "Bathrooms";
+                    labelDiv2.Controls.Add(lblbathlbl);
+
+                    div.Controls.Add(labelDiv2);
+
+                    var labelDiv3 = new System.Web.UI.HtmlControls.HtmlGenericControl("div");
+                    labelDiv3.Attributes["style"] = "display:grid;grid-template-columns:1fr 1fr;width:20vw;height:7vh;";
+
                     var lblbed = new System.Web.UI.WebControls.Label();
                     lblbed.ID = "lblName";
-                    lblbed.CssClass = "name";
-                    lblbed.Text = bedIcon + "Bedrooms:" +  row["Bedrooms"].ToString();
-                    labelDiv2.Controls.Add(lblbed);
+                    lblbed.CssClass = "bname";
+                    lblbed.Text =row["Bedrooms"].ToString();
+                    labelDiv3.Controls.Add(lblbed);
 
                     //Label Name
                     var lblbath = new System.Web.UI.WebControls.Label();
                     lblbath.ID = "lblName";
-                    lblbath.CssClass = "rname";
-                    lblbath.Text = showerIcon + "Bathrooms:" + row["Bathrooms"].ToString();
-                    labelDiv2.Controls.Add(lblbath);
+                    lblbath.CssClass = "brname";
+                    lblbath.Text = row["Bathrooms"].ToString();
+                    labelDiv3.Controls.Add(lblbath);
 
-                    div.Controls.Add(labelDiv2);
+                    div.Controls.Add(labelDiv3);
 
                     PlaceHolder1.Controls.Add(div);
                 }

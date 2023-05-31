@@ -259,9 +259,7 @@
     <Content Include="Javascript\Details.js" />
     <Content Include="Javascript\Listings.js" />
     <Content Include="Javascript\Main.js" />
-    <Content Include="Pages\AddListing.aspx" />
     <Content Include="Pages\Admin.aspx" />
-    <Content Include="Pages\Contact.aspx" />
     <Content Include="Pages\Customers.aspx" />
     <Content Include="Pages\DeleteListing.aspx" />
     <Content Include="Pages\EditListing.aspx" />
@@ -271,12 +269,12 @@
     <Content Include="Pages\ListingsUser.aspx" />
     <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\Registration.aspx" />
-    <Content Include="Pages\ViewListings.aspx" />
     <Content Include="Style\Admin.css" />
     <Content Include="Style\Home.css" />
-    <Content Include="Style\layout.css" />
+    <Content Include="Style\index.css" />
     <Content Include="Style\Listings.css" />
     <Content Include="Style\Login.css" />
+    <Content Include="Style\Main.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -309,26 +307,12 @@
     <Compile Include="Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
-    <Compile Include="Pages\AddListing.aspx.cs">
-      <DependentUpon>AddListing.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\AddListing.aspx.designer.cs">
-      <DependentUpon>AddListing.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Pages\Admin.aspx.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\Admin.aspx.designer.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Contact.aspx.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\Contact.aspx.designer.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Customers.aspx.cs">
       <DependentUpon>Customers.aspx</DependentUpon>
@@ -392,13 +376,6 @@
     </Compile>
     <Compile Include="Pages\Registration.aspx.designer.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\ViewListings.aspx.cs">
-      <DependentUpon>ViewListings.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\ViewListings.aspx.designer.cs">
-      <DependentUpon>ViewListings.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
